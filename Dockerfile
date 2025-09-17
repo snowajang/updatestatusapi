@@ -1,4 +1,3 @@
-
 FROM node:22-alpine3.18
 
 ENV http_proxy=http://172.16.82.3:3128
