@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.userAgentExample = exports.acceptedAPIKeyExample3 = exports.acceptedAPIKeyExample2 = exports.acceptedAPIKeyExample1 = void 0;
+var acceptedAPIKeyExample1 = process.env.ACCEPTED_API_KEY_EXAMPLE_1 || "exampleApiKey1";
+exports.acceptedAPIKeyExample1 = acceptedAPIKeyExample1;
+var acceptedAPIKeyExample2 = process.env.ACCEPTED_API_KEY_EXAMPLE_2 || "exampleApiKey2";
+exports.acceptedAPIKeyExample2 = acceptedAPIKeyExample2;
+var acceptedAPIKeyExample3 = process.env.ACCEPTED_API_KEY_EXAMPLE_3 || "exampleApiKey3";
+exports.acceptedAPIKeyExample3 = acceptedAPIKeyExample3;
+var userAgentExample = process.env.USER_AGENT_EXAMPLE || "ExampleClient/1.0";
+exports.userAgentExample = userAgentExample;
