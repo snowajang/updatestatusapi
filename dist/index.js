@@ -5,7 +5,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app_1 = require("./route/app");
-const config_1 = require("./config");
 const dotenv_1 = __importDefault(require("dotenv"));
 // For demo external store purposes only, Replace with database or external store
 dotenv_1.default.config({ path: ".env" });
@@ -30,13 +29,13 @@ function validateUserAgentMiddleware(req, res, next) {
     }
     const userAgent = req.headers["user-agent"];
     // Check if user agent header isn't matches with accepted user agent
-    if (!userAgent.startsWith(acceptedUserAgentPrefix)) {
-        console.log("Invalid User Agent header:", userAgent);
-        res.status(401).json({
-            info: "Unauthorized"
-        });
-        return;
-    }
+    // if (!userAgent.startsWith(acceptedUserAgentPrefix)) {
+    //     console.log("Invalid User Agent header:", userAgent);
+    //     res.status(401).json({
+    //         info: "Unauthorized"
+    //     });
+    //     return;
+    // } 
     // Call next to pass control to the next middleware
     next();
 }
@@ -51,13 +50,13 @@ function validateAPIKeyMiddleware(req, res, next) {
     }
     const apiKey = req.headers["x-api-key"];
     // Check if API key is matches with accepted API key
-    if (apiKey !== config_1.acceptedAPIKeyExample1 && apiKey !== config_1.acceptedAPIKeyExample2 && apiKey !== config_1.acceptedAPIKeyExample3) {
-        console.log("Invalid API Key:", apiKey, config_1.acceptedAPIKeyExample1, config_1.acceptedAPIKeyExample2, config_1.acceptedAPIKeyExample3);
-        res.status(401).json({
-            info: "Unauthorized"
-        });
-        return;
-    }
+    // if (apiKey !== acceptedAPIKeyExample1 && apiKey !== acceptedAPIKeyExample2 && apiKey !== acceptedAPIKeyExample3) {
+    //     console.log("Invalid API Key:", apiKey, acceptedAPIKeyExample1, acceptedAPIKeyExample2, acceptedAPIKeyExample3);
+    //     res.status(401).json({
+    //         info: "Unauthorized"
+    //     });
+    //     return;
+    // }
     next();
 }
 // Middleware to automatically parse incoming JSON request bodies, It makes JSON data available as a JavaScript object in request body
