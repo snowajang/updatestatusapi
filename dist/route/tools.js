@@ -3,6 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.generateAccessKey1 = generateAccessKey1;
 exports.generateAccessKey2 = generateAccessKey2;
 exports.generateAccessKey3 = generateAccessKey3;
+exports.generateRandomPassword = generateRandomPassword;
+exports.saveAccessKey = saveAccessKey;
 exports.hasAccessKeyInDataStore = hasAccessKeyInDataStore;
 exports.deleteAccessKey = deleteAccessKey;
 exports.validateAccessKey = validateAccessKey;

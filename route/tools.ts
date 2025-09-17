@@ -65,15 +65,15 @@ function createAccessKey3(): string {
     return Buffer.from(`${apiKeyExample}:${passwordExample}`, "utf-8").toString("base64");
 };
 
-function generateRandomPassword(): string {
+export function generateRandomPassword(): string {
     return "randomly"; // FIXME: Change to your logic
 }
 
 
 // TODO: Implement logic to store accessKey to external
-function saveAccessKey(accessKey: string): boolean {
+export function saveAccessKey(accessKey: string): boolean {
     globalThis.accessKeyStore.push(accessKey);
-
+    console.log("AccessKey saved to external store:", accessKey);
     return true;
 }
 

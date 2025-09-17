@@ -12,8 +12,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.runapp = runapp;
 const tools_1 = require("./tools");
 function runapp(app) {
-    app.get("/app2/auth", tools_1.generateAccessKey2);
-    app.post("/app2", tools_1.validateAccessKey, receiveData);
+    return __awaiter(this, void 0, void 0, function* () {
+        app.get("/app2/auth", tools_1.generateAccessKey2);
+        app.post("/app2", tools_1.validateAccessKey, receiveData);
+    });
 }
 const statusApp = Number(process.env.STATUS_APP_2 || "408");
 function sleep(ms) {

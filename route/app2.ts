@@ -3,7 +3,7 @@ import { generateAccessKey2, validateAccessKey } from "./tools";
 
 import type { Express, Request, Response } from "express";
 
-export function runapp(app: Express) {
+export async function runapp(app: Express) {
     app.get("/app2/auth", generateAccessKey2);
     app.post("/app2", validateAccessKey, receiveData);
 }
