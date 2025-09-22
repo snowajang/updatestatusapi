@@ -140,6 +140,8 @@ function validateAccessKey(req: Request, res: Response, next: NextFunction): voi
 
     next();
 }
+
+let paths = process.env.PATHS || "";
 const statusApp1 = Number(process.env.STATUS_APP_1 || "200");
 // Recieve data and process as your requirement
 function receiveData1(req: Request, res: Response): Response {
@@ -151,8 +153,8 @@ function receiveData1(req: Request, res: Response): Response {
     // Response status 204
     return res.status(statusApp1).json({  }).end();
 };
-app.get("/app1/auth", generateAccessKey1);
-app.post("/app1", validateAccessKey, receiveData1);
+app.get(paths+"/app1/auth", generateAccessKey1);
+app.post(paths+"/app1", validateAccessKey, receiveData1);
 
 
 const statusApp2 = Number(process.env.STATUS_APP_2 || "408");
@@ -169,8 +171,8 @@ async function receiveData2(req: Request, res: Response): Promise<Response> {
     // Response status 204
     return res.status(statusApp2).json({  }).end();
 };
-app.get("/app2/auth", generateAccessKey2);
-app.post("/app2", validateAccessKey, receiveData2);
+app.get(paths+"/app2/auth", generateAccessKey2);
+app.post(paths+"/app2", validateAccessKey, receiveData2);
 
 
 const statusApp3 = Number(process.env.STATUS_APP_3 || "500");
@@ -184,13 +186,8 @@ function receiveData3(req: Request, res: Response): Response {
     // Response status 204
     return res.status(statusApp3).json({  }).end();
 };
-app.get("/app3/auth", generateAccessKey3);
-app.post("/app3", validateAccessKey, receiveData3);
-
-
-
-const expressListEndpoints = require("express-list-endpoints");
-console.log(expressListEndpoints(app));
+app.get(paths+"/app3/auth", generateAccessKey3);
+app.post(paths+"/app3", validateAccessKey, receiveData3);
 
 app.listen(3000, () => {
     console.log(`Server running on port: http://localhost:3000`);

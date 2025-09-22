@@ -2,9 +2,13 @@ import type { Request, Response, NextFunction } from "express";
 import { UpdateStatusRequest } from "./model";
 import { acceptedAPIKeyExample1, acceptedAPIKeyExample2, acceptedAPIKeyExample3 } from "../config";
 
+function getMethod(req: Request): void {
+    console.log("Method:", req.method, "url:", req.originalUrl);
+}
 
 // Generate accessKey for request authentication from external
 export function generateAccessKey1(req: Request, res: Response): void {
+    getMethod(req);
     const accessKey: string = createAccessKey1();
 
     saveAccessKey(accessKey);
@@ -19,6 +23,7 @@ export function generateAccessKey1(req: Request, res: Response): void {
 
 // Generate accessKey for request authentication from external
 export function generateAccessKey2(req: Request, res: Response): void {
+    getMethod(req);
     const accessKey: string = createAccessKey2();
 
     saveAccessKey(accessKey);
@@ -33,6 +38,7 @@ export function generateAccessKey2(req: Request, res: Response): void {
 
 // Generate accessKey for request authentication from external
 export function generateAccessKey3(req: Request, res: Response): void {
+    getMethod(req);
     const accessKey: string = createAccessKey3();
 
     saveAccessKey(accessKey);
